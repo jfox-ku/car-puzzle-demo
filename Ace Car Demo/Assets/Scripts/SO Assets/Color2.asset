@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Color2
   m_EditorClassIdentifier: 
   baseMaterial: {fileID: 2100000, guid: 40ae32127d5c1ed4fb62fedc599abd4c, type: 2}
+  ColorID: 2

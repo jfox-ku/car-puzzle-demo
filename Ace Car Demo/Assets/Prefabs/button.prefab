@@ -48,7 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MRenderer_: {fileID: 1793322127044884116}
-  GameColorSO: {fileID: 11400000, guid: df1166618863b5e47a7b0a64236de505, type: 2}
+  Animator_: {fileID: 8770854845194288256}
+  ButtonClickedEvent: {fileID: 11400000, guid: 8f58be274edc24c48a8fc5b3f59726a1, type: 2}
+  GameColorSO: {fileID: 11400000, guid: a884726bd3739ba4891a4043a7382445, type: 2}
 --- !u!65 &5946934457512849149
 BoxCollider:
   m_ObjectHideFlags: 0

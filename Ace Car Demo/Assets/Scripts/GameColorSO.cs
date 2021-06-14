@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameColorSO : ScriptableObject
 {
     public Material baseMaterial;
+    public int ColorID;
 
 
     public Color GetColor() {
