@@ -23,7 +23,7 @@ public class ButtonScript : MonoBehaviour
         }
     }
 
-
+    //Temporary
     //Called in the animation clip
     public void PublishButtonClicked() {
         ButtonClickedEvent?.Raise(GameColorSO.ColorID);
