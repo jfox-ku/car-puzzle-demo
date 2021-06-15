@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8559386126021127299
 Transform:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4294823055588567889
 Transform:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9085781143711632422
 Transform:
   m_ObjectHideFlags: 0
@@ -388,4 +388,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ColorSO: {fileID: 0}
+  MovementType: 1
+  MovementDurationPerUnitDistance: 0.04
+  MovementTotalDuration: 0.8
+  RotationDuration: 0.7
   MRenderer_: {fileID: 6713455833064399647}

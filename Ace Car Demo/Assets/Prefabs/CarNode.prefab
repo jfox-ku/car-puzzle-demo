@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: CarNode
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -96,3 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SRenderer: {fileID: 2133471092597730263}
   NodeColorSO: {fileID: 11400000, guid: df1166618863b5e47a7b0a64236de505, type: 2}
+  NextNodeMain: {fileID: 0}
+  NextNodeAlt: {fileID: 0}
+  NodeBehaviour: 0
+  isOccupied: 0

@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GateColor: {fileID: 0}
   Animator_: {fileID: 6298883403306258158}
+  GateRaisedEvent: {fileID: 11400000, guid: e4c227c18a4abb64cac91f117da43ee8, type: 2}
 --- !u!114 &4036490588308672507
 MonoBehaviour:
   m_ObjectHideFlags: 0

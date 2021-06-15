@@ -26,9 +26,4 @@ public class NodeManager : MonoBehaviour
         FindObjectOfType<SpawnerScript>().InitiliazeSpawnerCars(Color1Count,Color2Count);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

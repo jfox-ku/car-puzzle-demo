@@ -37,30 +37,33 @@ public class SpawnerScript : MonoBehaviour
         }
 
 
-        SpawnByColorID(Color1SO.ColorID);
-        SpawnByColorID(Color2SO.ColorID);
+        WaitNode1.GetComponent<SpawnNodeScript>()?.InitiliazeWaitNode();
+        WaitNode2.GetComponent<SpawnNodeScript>()?.InitiliazeWaitNode();
     }
 
 
 
-    public void SpawnByColorID(int id) {
+    public CarScript SpawnByColorID(int id) {
         if(id == Color1SO.ColorID) {
-            if (Color1Stack.Peek() != null) {
+            if (Color1Stack.Count > 0) {
                 var car = Color1Stack.Pop().GetComponent<CarScript>();
                 car.gameObject.SetActive(true);
                 car.InitializeCar();
-                car.SetMoveDestination(WaitNode1);
+                //car.SetMoveDestination(WaitNode1);
+                return car;
             }
 
         }else if (id == Color2SO.ColorID) {
-            if (Color2Stack.Peek() != null) {
+            if (Color2Stack.Count > 0) {
                 var car = Color2Stack.Pop().GetComponent<CarScript>();
                 car.gameObject.SetActive(true);
                 car.InitializeCar();
-                car.SetMoveDestination(WaitNode2);
+                //car.SetMoveDestination(WaitNode2);
+                return car;
             }
         }
 
+        return null;
     }
 
 
