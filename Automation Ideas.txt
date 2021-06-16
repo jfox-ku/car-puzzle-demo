@@ -1,0 +1,13 @@
+Level Editor Automation
+After the CarNodes are placed on the road, Physics raycast in the editor can be used to automatically find main next road. Alternative roads (turns) would still need to be manual.
+
+A custom Graph representation of the level design can be used as data and read into Unity automatically, placing the necessary nodes and setting their colors. It could also be saved out with this approach.
+
+
+Level Design Automation
+The game can be represented by nodes only, so simulating if a certain configuration is solvable is possible.
+I would do this within a graph structure that functions very similar to its monobehaviour counterpart, but does the movements instantly. It would look for a situation where both buttons fail to create a match, and eliminate that configuration of colors.
+
+2^node_count color combinations of nodes exist. This approach could get pretty heavy pretty quickly on bigger maps, so I would also put a max number of valid configurations to search for just to be safe.
+
+For a given map, there could be a script that finds all(or some) possible valid configurations, which is then selectable in the unity editor, or randomly selected from at runtime.
