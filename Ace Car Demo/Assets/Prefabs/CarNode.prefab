@@ -95,6 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SRenderer: {fileID: 2133471092597730263}
+  MatchedPositionEvent: {fileID: 11400000, guid: bd2ef439aafcbb945a8553e6fa097606,
+    type: 2}
+  CarSettledEvent: {fileID: 11400000, guid: 820d2e0386023dc449001bc09577420c, type: 2}
+  WrongMatchEvent: {fileID: 11400000, guid: 7701cfee0faf8574f9f4f4fd17d5600e, type: 2}
   NodeColorSO: {fileID: 11400000, guid: df1166618863b5e47a7b0a64236de505, type: 2}
   NextNodeMain: {fileID: 0}
   NextNodeAlt: {fileID: 0}

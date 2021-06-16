@@ -5,6 +5,9 @@ using UnityEngine;
 public class NodeManager : MonoBehaviour
 {
     HashSet<CarNodeScript> AllCarNodes;
+    private int checkCount;
+    public VoidEvent AllNodesMatchedEvent;
+    
 
     void Start()
     {
@@ -12,7 +15,18 @@ public class NodeManager : MonoBehaviour
         
     }
 
+    //Called when a checkmark is created
+    public void MatchAtPos(Vector3 pos) {
+        checkCount++;
+        if(checkCount >= AllCarNodes.Count) {
+            Debug.Log("You win!");
+            AllNodesMatchedEvent?.Raise(new Void());
+        }
+
+    }
+
     private void InitliazeNodes() {
+        checkCount = 0;
         int Color1Count = 0;
         int Color2Count = 0;
 

@@ -21,7 +21,7 @@ public class SpawnerScript : MonoBehaviour
         Color2Stack = new Stack<GameObject>();
 
         for (int i = 0; i < Color1Count+Color2Count; i++) {
-            var obj = Instantiate(CarPrefab).GetComponent<CarScript>();
+            var obj = Instantiate(CarPrefab,this.transform).GetComponent<CarScript>();
 
             if (i < Color1Count) {
                 obj.SetColorSO(Color1SO);

@@ -50,7 +50,9 @@ MonoBehaviour:
   MRenderer_: {fileID: 1793322127044884116}
   Animator_: {fileID: 8770854845194288256}
   ButtonClickedEvent: {fileID: 11400000, guid: 8f58be274edc24c48a8fc5b3f59726a1, type: 2}
+  InputLockEvent: {fileID: 11400000, guid: 820d2e0386023dc449001bc09577420c, type: 2}
   GameColorSO: {fileID: 11400000, guid: a884726bd3739ba4891a4043a7382445, type: 2}
+  isLocked: 0
 --- !u!65 &5946934457512849149
 BoxCollider:
   m_ObjectHideFlags: 0

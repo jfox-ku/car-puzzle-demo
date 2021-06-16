@@ -8,9 +8,11 @@ public class ButtonScript : MonoBehaviour
     [SerializeField] private MeshRenderer MRenderer_;
     [SerializeField] private Animator Animator_;
     public IntEvent ButtonClickedEvent;
+
+    public IntEvent InputLockEvent; //1 is locked, 0 is unlocked
     public GameColorSO GameColorSO;
 
-    private bool isLocked = false;
+    public bool isLocked = false;
 
 
     private void Start() {
@@ -23,7 +25,8 @@ public class ButtonScript : MonoBehaviour
         }
     }
 
-    //Temporary
+
+
     //Called in the animation clip
     public void PublishButtonClicked() {
         ButtonClickedEvent?.Raise(GameColorSO.ColorID);
@@ -31,10 +34,22 @@ public class ButtonScript : MonoBehaviour
     //Called in the animation clip
     public void LockInput() {
         isLocked = true;
+        //InputLockEvent?.Raise(1);
     }
+
     //Called in the animation clip
     public void ReleaseInput() {
         isLocked = false;
+        //InputLockEvent?.Raise(0);
+    }
+
+    //Unused for now
+    public void LockEvent(int lockState) {
+        if (lockState == 0) {
+            isLocked = false;
+        } else if (lockState == 1) {
+            isLocked = true;
+        }
     }
 
 

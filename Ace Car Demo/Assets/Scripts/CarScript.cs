@@ -6,9 +6,11 @@ public class CarScript : MonoBehaviour
 {
     public enum MoveType { Distance, Time }
     public GameColorSO ColorSO;
+    public VoidEvent CarCollisionEvent;
     public MoveType MovementType;
-
+    [Header("Distance based Movement")]
     public float MovementDurationPerUnitDistance = 0.04f;
+    [Header("Time based Movement")]
     public float MovementTotalDuration = 1f;
     public float RotationDuration = 0.6f;
 
@@ -34,6 +36,13 @@ public class CarScript : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.collider.gameObject.GetComponent<CarScript>() != null) {
+            Debug.Log("Collision!");
+            CarCollisionEvent?.Raise(new Void());
+        }
+    }
+
     public void SetMoveDestination(Transform Node) {
         StartCoroutine(MoveToTargetXZ(Node));
     }
@@ -44,7 +53,7 @@ public class CarScript : MonoBehaviour
     }
 
     private IEnumerator RotateOnY(Transform Node) {
-        var startRot = this.transform.rotation.eulerAngles;
+        var startRot = this.transform.rotation;
         var euler = Node.rotation.eulerAngles;
         var target = Quaternion.Euler(0, euler.y, 0);
         
@@ -54,8 +63,8 @@ public class CarScript : MonoBehaviour
             timer_counter -= Time.deltaTime;
             float CompletionPercent = 1 - timer_counter / timer;
             float easedValue = easeInOutSine(CompletionPercent);
-            
-            this.transform.rotation = Quaternion.Euler(Vector3.Lerp(startRot, target.eulerAngles, easedValue));
+
+            this.transform.rotation = Quaternion.Slerp(startRot,target,easedValue);
             yield return new WaitForEndOfFrame();
         }
 
@@ -71,7 +80,11 @@ public class CarScript : MonoBehaviour
         }else if(MovementType == MoveType.Time) {
             timer = MovementTotalDuration;
         }
-        
+
+        var carNode = Node.GetComponent<CarNodeScript>();
+        //Prevents collisions
+        //if(carNode!=null) carNode.isOccupied = true;
+
         float timer_counter = timer;
         Vector3 firstPos = this.transform.position;
 
@@ -86,7 +99,7 @@ public class CarScript : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        Node.GetComponent<CarNodeScript>()?.Occupy(this);
+        carNode?.Occupy(this);
 
     }
 

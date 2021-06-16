@@ -1,11 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarNodeScript : MonoBehaviour
 {
     public enum NodeType { MovementNode, GameNode }
     [SerializeField] private SpriteRenderer SRenderer;
+
+    [Header("SO Events")]
+    [SerializeField] private Vector3Event MatchedPositionEvent;
+    [SerializeField] private IntEvent CarSettledEvent; //Unlocks input
+    [SerializeField] private VoidEvent WrongMatchEvent; //Game over
+
+    [Header("Node related")]
     public GameColorSO NodeColorSO;
 
     public CarNodeScript NextNodeMain;
@@ -15,6 +23,8 @@ public class CarNodeScript : MonoBehaviour
     private CarScript CurrentCar;
 
     public bool isOccupied = false;
+
+
 
     private void Start() {
         if(NodeBehaviour == NodeType.GameNode) {
@@ -91,9 +101,9 @@ public class CarNodeScript : MonoBehaviour
         //Settle
         if(NodeBehaviour == NodeType.GameNode) {
             if(NodeColorSO.ColorID == car.ColorSO.ColorID) {
-                Debug.Log("Color match on "+this.gameObject.name);
+                MatchedPositionEvent?.Raise(this.transform.position);
             } else {
-                Debug.Log("Wrong match, reset scene pls.");
+                WrongMatchEvent.Raise(new Void());
             }
 
 
